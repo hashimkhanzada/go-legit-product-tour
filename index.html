@@ -91,12 +91,6 @@
   p { margin: 0; }
 
   .wrap { width: min(1120px, 100%); margin-inline: auto; padding-inline: 20px; }
-  .label {
-    font: 500 12px/1.2 var(--mono);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
 
   /* Opener */
   .opener { background: var(--evergreen); color: var(--on-evergreen); }
@@ -104,18 +98,8 @@
   .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 10px; font: 700 18px/1 var(--display); letter-spacing: -0.02em; }
   .brand img { width: 34px; height: 34px; border-radius: 9px; }
-  .bar nav { display: flex; gap: 4px 18px; flex-wrap: wrap; }
-  .bar nav a { color: var(--on-evergreen-muted); text-decoration: none; font-size: 14px; font-weight: 500; }
-  .bar nav a:hover { color: var(--mint); }
-  .opener .label { color: var(--mint); }
-  .opener h1 { font-size: clamp(34px, 5.4vw, 60px); line-height: 1.02; font-weight: 700; max-width: 17ch; margin-top: 14px; }
-  .opener .lead { max-width: 60ch; margin-top: 18px; font-size: clamp(16px, 1.6vw, 19px); color: var(--on-evergreen-muted); }
-  .opener .lead strong { color: var(--on-evergreen); font-weight: 600; }
-  .surfaces { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--evergreen-2); }
-  .surfaces div { padding: 18px 20px 0 0; }
-  .surfaces div + div { padding-left: 20px; border-left: 1px solid var(--evergreen-2); }
-  .surfaces b { display: block; font: 700 17px/1.3 var(--display); color: var(--on-evergreen); }
-  .surfaces span { font-size: 14px; color: var(--on-evergreen-muted); }
+  .opener h1 { font-size: clamp(34px, 5.4vw, 56px); line-height: 1.02; font-weight: 700; }
+  .opener .date { margin-top: 10px; font-size: 16px; color: var(--on-evergreen-muted); }
 
   /* Sections */
   section { padding-block: 72px 8px; }
@@ -230,29 +214,10 @@
   .page figcaption span { font-size: 15px; color: var(--muted); }
 
   .network { margin-top: 48px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: center; background: var(--evergreen); color: var(--on-evergreen); border-radius: 24px; padding: clamp(22px, 3.4vw, 40px); }
-  .network .label { color: var(--mint); }
   .network h3 { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.12; margin: 10px 0 12px; }
   .network p { color: var(--on-evergreen-muted); font-size: 15.5px; }
   .network p + p { margin-top: 10px; }
   .network .browser { border-color: var(--evergreen-2); }
-
-  /* Status */
-  .status { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); overflow: hidden; }
-  .status > div { padding: 24px; display: grid; gap: 14px; align-content: start; }
-  .status > div + div { border-left: 1px solid var(--line); }
-  .status h3 { font-size: 19px; display: flex; align-items: center; gap: 10px; }
-  .status h3 i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
-  .status .now h3 i { background: var(--allow); }
-  .status .held h3 i { background: var(--check); }
-  .status .next h3 i { background: transparent; box-shadow: inset 0 0 0 2px var(--muted); }
-  .status ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-  .status li { font-size: 15px; line-height: 1.5; color: var(--muted); }
-  .status li b { color: var(--ink); font-weight: 600; }
-
-  .asks { display: grid; gap: 0; border-top: 1px solid var(--line); }
-  .asks div { display: grid; grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr); gap: 8px 32px; padding-block: 18px; border-bottom: 1px solid var(--line); }
-  .asks b { font: 700 17px/1.35 var(--display); }
-  .asks span { color: var(--muted); font-size: 15.5px; }
 
   .try { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .try > div { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; display: grid; gap: 14px; align-content: start; }
@@ -274,21 +239,15 @@
   @media (max-width: 900px) {
     .walk { grid-template-columns: minmax(0, 1fr); }
     .stage { order: -1; justify-content: center; }
-    .status { grid-template-columns: minmax(0, 1fr); }
-    .status > div + div { border-left: 0; border-top: 1px solid var(--line); }
     .network { grid-template-columns: minmax(0, 1fr); }
   }
   @media (max-width: 680px) {
     section { padding-block: 52px 4px; }
-    .surfaces { grid-template-columns: minmax(0, 1fr); }
-    .surfaces div, .surfaces div + div { padding: 14px 0 0; border-left: 0; }
-    .surfaces div + div { border-top: 1px solid var(--evergreen-2); margin-top: 14px; }
     .stage { gap: 12px; }
     .stage .phone { --pw: 41vw; }
     .shots, .shots.six { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
     .shot .phone, .shots.six .phone { --pw: 40vw; }
     .pages, .try { grid-template-columns: minmax(0, 1fr); }
-    .asks div { grid-template-columns: minmax(0, 1fr); }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -303,23 +262,10 @@
   <div class="wrap">
     <div class="bar">
       <div class="brand"><img src="assets/go-legit-icon.png" alt="" />Go Legit</div>
-      <nav aria-label="On this page">
-        <a href="#check-in">The check-in</a>
-        <a href="#more">More of the app</a>
-        <a href="#portal">Venue portal</a>
-        <a href="#status">Where things stand</a>
-        <a href="#try">Have a look</a>
-      </nav>
     </div>
     <div>
-      <div class="label">Product tour · September 2026</div>
-      <h1>Verified before they arrive. Checked in seconds at the door.</h1>
-      <p class="lead">A first look at the app and the portal, and how a night runs. <strong>Real screens, made-up people.</strong></p>
-    </div>
-    <div class="surfaces">
-      <div><b>Member app</b><span>Verify once. One pass, every venue.</span></div>
-      <div><b>Staff app</b><span>Scan, one answer, record the decision.</span></div>
-      <div><b>Venue portal</b><span>Activity, incidents, bans, staff.</span></div>
+      <h1>Product tour</h1>
+      <p class="date">October 2026</p>
     </div>
   </div>
 </header>
@@ -328,9 +274,7 @@
   <section id="check-in">
     <div class="wrap">
       <div class="head">
-        <div class="label">The check-in</div>
-        <h2>One person at the door</h2>
-        <p>Member on the left, door staff on the right.</p>
+        <h2>The check-in</h2>
       </div>
       <div class="walk" id="walk">
         <div>
@@ -366,8 +310,7 @@
   <section id="more">
     <div class="wrap">
       <div class="head">
-        <div class="label">Also in the app</div>
-        <h2>What the walkthrough didn't show</h2>
+        <h2>More of the app</h2>
       </div>
       <div class="shots six">
         <figure class="shot"><div class="phone"><div class="screen"><img loading="lazy" src="assets/app/discover-light.png" alt="Discover venues list" /></div></div><figcaption><b>Discover</b><span>Venues on Go Legit, by list or map.</span></figcaption></figure>
@@ -383,12 +326,10 @@
   <section id="portal">
     <div class="wrap">
       <div class="head">
-        <div class="label">Venue portal</div>
-        <h2>The manager's side, in a browser</h2>
-        <p>A 35-second recording: ban someone after an incident, then approve a door phone. The rest of the portal is below.</p>
+        <h2>Venue portal</h2>
       </div>
       <div class="browser">
-        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="where">Go Legit · venue portal</span></div>
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="where">Go Legit venue portal</span></div>
         <video controls muted playsinline preload="metadata" poster="assets/portal/portal-flow-poster.jpg">
           <source src="assets/portal/portal-flow.mp4" type="video/mp4" />
         </video>
@@ -403,61 +344,10 @@
 
       <div class="network">
         <div>
-          <div class="label">The Legit network</div>
-          <h3>Banned at one venue, flagged at the next</h3>
-          <p>One switch per venue. Shared bans show who, why and until when.</p>
+          <h3>The Legit network</h3>
+          <p>Banned at one venue, flagged at the next. One switch per venue, and shared bans show who, why and until when.</p>
         </div>
         <div class="browser"><button class="zoom" type="button"><img loading="lazy" src="assets/portal/network.png" alt="The Legit network switch in venue settings" /></button></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="status">
-    <div class="wrap">
-      <div class="head">
-        <div class="label">Where things stand</div>
-        <h2>In testing now, with a few things waiting on you</h2>
-      </div>
-      <div class="status">
-        <div class="now">
-          <h3><i></i>In testing</h3>
-          <ul>
-            <li><b>Member app</b></li>
-            <li><b>Staff app</b></li>
-            <li><b>Venue portal</b></li>
-          </ul>
-        </div>
-        <div class="held">
-          <h3><i></i>Switched off for now</h3>
-          <ul>
-            <li><b>Face Pass</b> · needs a privacy assessment</li>
-            <li><b>Subscriptions</b> · needs pricing</li>
-            <li><b>Legit network</b> · needs agreed rules</li>
-          </ul>
-        </div>
-        <div class="next">
-          <h3><i></i>Before opening night</h3>
-          <ul>
-            <li><b>Live environment</b> in your account</li>
-            <li><b>A test night</b> at the bar</li>
-            <li><b>App Store and Google Play</b> release</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="asks">
-    <div class="wrap">
-      <div class="head">
-        <div class="label">What I need from you</div>
-        <h2>Four decisions</h2>
-      </div>
-      <div class="asks">
-        <div><b>Look and name</b><span>Keep “Go Legit” and the green, or bring your own?</span></div>
-        <div><b>Member pricing</b><span>NZ$2 a month or NZ$24 a year?</span></div>
-        <div><b>Face Pass</b><span>On from day one?</span></div>
-        <div><b>Network rules</b><span>Who shares bans, and for how long?</span></div>
       </div>
     </div>
   </section>
@@ -465,8 +355,7 @@
   <section id="try">
     <div class="wrap">
       <div class="head">
-        <div class="label">Have a look yourself</div>
-        <h2>Try it in the test environment</h2>
+        <h2>Try it yourself</h2>
         <p>It runs on a test environment for now, so expect it to be slow in places.</p>
       </div>
       <div class="try">
@@ -493,7 +382,6 @@
 
 <footer>
   <div class="wrap">
-    <span>Go Legit product tour · September 2026 · prepared for Lez Kiriona</span>
     <span>All names, venues, passes and incidents shown are made up.</span>
   </div>
 </footer>
