@@ -18,11 +18,11 @@
     --line: #d3e2da;
     --accent: #0b7a55;
     --accent-soft: #d9f3e7;
-    --evergreen: #09251e;
-    --evergreen-2: #0f3329;
-    --mint: #5ce0aa;
-    --on-evergreen: #e9f6f0;
-    --on-evergreen-muted: #9fc0b3;
+    --evergreen: #000000;
+    --evergreen-2: #1b2420;
+    --mint: #1ed760;
+    --on-evergreen: #f1f7f3;
+    --on-evergreen-muted: #9fb3a9;
     --allow: #0b7a55;
     --refuse: #b42318;
     --check: #a3560a;
@@ -44,8 +44,8 @@
       --line: #1d3a30;
       --accent: #5ce0aa;
       --accent-soft: #12352a;
-      --evergreen: #0b2a21;
-      --evergreen-2: #113a2e;
+      --evergreen: #000000;
+      --evergreen-2: #1b2420;
       --allow: #5ce0aa;
       --refuse: #ff8a7a;
       --check: #f2b457;
@@ -64,8 +64,8 @@
     --line: #1d3a30;
     --accent: #5ce0aa;
     --accent-soft: #12352a;
-    --evergreen: #0b2a21;
-    --evergreen-2: #113a2e;
+    --evergreen: #000000;
+    --evergreen-2: #1b2420;
     --allow: #5ce0aa;
     --refuse: #ff8a7a;
     --check: #f2b457;
@@ -93,18 +93,30 @@
   .wrap { width: min(1120px, 100%); margin-inline: auto; padding-inline: 20px; }
 
   /* Opener */
-  .opener { background: var(--evergreen); color: var(--on-evergreen); }
-  .opener .wrap { padding-block: 22px 56px; display: grid; gap: 48px; }
+  .opener { position: relative; overflow: hidden; isolation: isolate; background: var(--evergreen); color: var(--on-evergreen); }
+  .opener .wrap { position: relative; z-index: 1; padding-top: 22px; display: grid; gap: 24px; }
   .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 10px; font: 700 18px/1 var(--display); letter-spacing: -0.02em; }
-  .brand img { width: 34px; height: 34px; border-radius: 9px; }
-  .opener h1 { font-size: clamp(34px, 5.4vw, 56px); line-height: 1.02; font-weight: 700; }
-  .opener .date { margin-top: 10px; font-size: 16px; color: var(--on-evergreen-muted); }
+  .brand img { width: 34px; height: 34px; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; min-height: 500px; }
+  .hero .title { padding-bottom: 72px; }
+  .opener h1 { font-size: clamp(56px, 9.4vw, 124px); line-height: 0.92; font-weight: 700; letter-spacing: -0.04em; color: var(--mint); }
+  .opener .date { margin-top: 22px; font: 500 13px/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-evergreen-muted); }
+  .hero-phones { display: flex; align-items: flex-end; margin-bottom: -150px; padding-right: 8px; }
+  .hero-phones .phone { --pw: 252px; box-shadow: 0 0 0 1px #26302b, 0 40px 80px -24px rgba(0, 0, 0, 0.9); }
+  .hero-phones .phone:first-child { transform: rotate(-5deg) translateY(-6px); }
+  .hero-phones .phone + .phone { margin-left: -46px; transform: rotate(4deg) translateY(-58px); }
+  /* Security print, as on the portal sign-in panel: a guilloche rosette behind the phones. */
+  .art { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .art svg { position: absolute; top: 58%; left: 80%; width: max(110%, 980px); aspect-ratio: 1; translate: -50% -50%; }
+  .art path, .art circle { fill: none; stroke: rgb(30 215 96 / 30%); stroke-width: 0.7px; }
+  .art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, #000 0%, rgb(0 0 0 / 88%) 34%, transparent 70%), linear-gradient(to top, #000 0%, transparent 30%); }
 
   /* Sections */
   section { padding-block: 72px 8px; }
   .head { display: grid; gap: 10px; max-width: 68ch; margin-bottom: 32px; }
-  .head h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.06; font-weight: 700; }
+  .head h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1; font-weight: 700; letter-spacing: -0.035em; }
+  .band { margin-top: 72px; padding-block: 72px; background: var(--surface); border-block: 1px solid var(--line); }
   .head p { color: var(--muted); font-size: 17px; }
 
   /* Phone */
@@ -214,7 +226,7 @@
   .page figcaption span { font-size: 15px; color: var(--muted); }
 
   .network { margin-top: 48px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: center; background: var(--evergreen); color: var(--on-evergreen); border-radius: 24px; padding: clamp(22px, 3.4vw, 40px); }
-  .network h3 { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.12; margin: 10px 0 12px; }
+  .network h3 { font-size: clamp(26px, 3vw, 36px); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 12px; color: var(--mint); }
   .network p { color: var(--on-evergreen-muted); font-size: 15.5px; }
   .network p + p { margin-top: 10px; }
   .network .browser { border-color: var(--evergreen-2); }
@@ -227,7 +239,9 @@
   .code { font: 700 15px/1 var(--mono); letter-spacing: 0.14em; color: var(--accent); }
 
   footer { margin-top: 80px; border-top: 1px solid var(--line); }
-  footer .wrap { padding-block: 26px 40px; font-size: 13.5px; color: var(--muted); display: flex; gap: 8px 24px; flex-wrap: wrap; justify-content: space-between; }
+  footer .wrap { padding-block: 26px 40px; font-size: 13.5px; color: var(--muted); display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap; justify-content: space-between; }
+  footer .brand { font-size: 15px; color: var(--ink); }
+  footer .brand img { width: 26px; height: 26px; }
 
   dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: min(1400px, 96vw); max-height: 94vh; }
   dialog.lightbox::backdrop { background: rgba(4, 14, 11, 0.82); }
@@ -240,9 +254,17 @@
     .walk { grid-template-columns: minmax(0, 1fr); }
     .stage { order: -1; justify-content: center; }
     .network { grid-template-columns: minmax(0, 1fr); }
+    .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 8px; }
+    .hero .title { padding: 40px 0 0; }
+    .hero-phones { justify-content: center; margin-bottom: -170px; padding: 24px 0 0 40px; }
+    .art svg { top: 78%; left: 50%; }
+    .art::after { background: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 80%) 30%, transparent 70%); }
   }
   @media (max-width: 680px) {
     section { padding-block: 52px 4px; }
+    .band { margin-top: 52px; padding-block: 52px; }
+    .hero-phones .phone { --pw: 46vw; }
+    .hero-phones .phone + .phone { margin-left: -12vw; transform: rotate(4deg) translateY(-34px); }
     .stage { gap: 12px; }
     .stage .phone { --pw: 41vw; }
     .shots, .shots.six { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
@@ -259,13 +281,20 @@
 <body>
 <!--body-->
 <header class="opener">
+  <div class="art" aria-hidden="true"><svg id="rosette" viewBox="-500 -500 1000 1000"></svg></div>
   <div class="wrap">
     <div class="bar">
       <div class="brand"><img src="assets/go-legit-icon.png" alt="" />Go Legit</div>
     </div>
-    <div>
-      <h1>Product tour</h1>
-      <p class="date">October 2026</p>
+    <div class="hero">
+      <div class="title">
+        <h1>Product tour</h1>
+        <p class="date">October 2026</p>
+      </div>
+      <div class="hero-phones" aria-hidden="true">
+        <div class="phone"><div class="screen"><img src="assets/app/pass-light.png" alt="" /></div></div>
+        <div class="phone"><div class="screen"><img src="assets/app/verdict-allow-dark.png" alt="" /></div></div>
+      </div>
     </div>
   </div>
 </header>
@@ -307,7 +336,7 @@
     </div>
   </section>
 
-  <section id="more">
+  <section id="more" class="band">
     <div class="wrap">
       <div class="head">
         <h2>More of the app</h2>
@@ -334,6 +363,7 @@
           <source src="assets/portal/portal-flow.mp4" type="video/mp4" />
         </video>
       </div>
+      <p class="video-note">A 35-second recording: banning someone after an incident, then approving a door phone.</p>
 
       <div class="pages">
         <figure class="page"><div class="browser"><button class="zoom" type="button"><img loading="lazy" src="assets/portal/access-activity.png" alt="Access activity" /></button></div><figcaption><b>Door activity</b><span>Every check, and who decided it.</span></figcaption></figure>
@@ -382,6 +412,7 @@
 
 <footer>
   <div class="wrap">
+    <div class="brand"><img src="assets/go-legit-icon.png" alt="" />Go Legit</div>
     <span>All names, venues, passes and incidents shown are made up.</span>
   </div>
 </footer>
@@ -389,6 +420,52 @@
 <dialog class="lightbox" id="lightbox" aria-label="Enlarged screenshot"><img alt="" /></dialog>
 
 <script>
+  // The rosette from apps/portal/src/components/security-print.tsx: each band is one closed wave,
+  // repeated with a small rotation so the copies cross into engraved lace.
+  (function () {
+    var bands = [
+      { a: 9, copies: 5, lobes: 96, r: 466, w: 0 },
+      { a: 58, copies: 7, lobes: 40, r: 392, w: 0 },
+      { a: 84, copies: 9, lobes: 22, r: 268, w: 14 },
+      { a: 70, copies: 12, lobes: 12, r: 150, w: 0 },
+      { a: 22, copies: 8, lobes: 8, r: 56, w: 0 }
+    ];
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.getElementById("rosette");
+    function wave(b) {
+      var n = b.lobes * 8, pts = [];
+      for (var i = 0; i < n; i++) {
+        var t = (i / n) * Math.PI * 2;
+        var r = b.r + b.a * Math.sin(b.lobes * t) + b.w * Math.sin(5 * t);
+        pts.push([r * Math.cos(t), r * Math.sin(t)]);
+      }
+      function at(i) { return pts[(i + n) % n]; }
+      function f(v) { return v.toFixed(1); }
+      var d = "M" + f(at(0)[0]) + " " + f(at(0)[1]);
+      for (var k = 0; k < n; k++) {
+        var p0 = at(k - 1), p1 = at(k), p2 = at(k + 1), p3 = at(k + 2);
+        d += "C" + f(p1[0] + (p2[0] - p0[0]) / 6) + " " + f(p1[1] + (p2[1] - p0[1]) / 6) + " " + f(p2[0] - (p3[0] - p1[0]) / 6) + " " + f(p2[1] - (p3[1] - p1[1]) / 6) + " " + f(p2[0]) + " " + f(p2[1]);
+      }
+      return d + "Z";
+    }
+    bands.forEach(function (b) {
+      var d = wave(b);
+      for (var c = 0; c < b.copies; c++) {
+        var path = document.createElementNS(NS, "path");
+        path.setAttribute("d", d);
+        path.setAttribute("vector-effect", "non-scaling-stroke");
+        if (c) path.setAttribute("transform", "rotate(" + (c * 360) / b.lobes / b.copies + ")");
+        svg.appendChild(path);
+      }
+    });
+    [478, 496].forEach(function (r) {
+      var circle = document.createElementNS(NS, "circle");
+      circle.setAttribute("r", r);
+      circle.setAttribute("vector-effect", "non-scaling-stroke");
+      svg.appendChild(circle);
+    });
+  })();
+
   (function () {
     var walk = document.getElementById("walk");
     var buttons = Array.prototype.slice.call(document.querySelectorAll("#steps button"));
